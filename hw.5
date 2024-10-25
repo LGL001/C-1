@@ -1,0 +1,23 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+void kk(int n);  // 함수 선언
+
+int main() {
+    int n;
+    scanf("%d", &n);  // 사용자로부터 정수 입력받기
+
+    kk(n);  // kk 함수 호출
+    printf("\n");  // 결과 출력 후 줄바꿈
+
+    return 0;
+}
+
+void kk(int n) {
+    if (n == 0) {
+        return;  // n이 0이면 종료 (기저 조건)
+    }
+
+    kk(n / 2);  // 재귀 호출로 상위 비트 처리
+    printf("%d", n % 2);  // 현재 비트 출력 (n을 2로 나눈 나머지)
+}
