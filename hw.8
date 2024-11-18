@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <math.h>
+
+// 표준편차를 계산하는 함수
+double calculateStandardDeviation(double arr[], int n) {
+    double sum = 0.0, mean, variance = 0.0, standardDeviation;
+    
+    // 평균 계산
+    for (int i = 0; i < n; i++) {
+        sum += arr[i];
+    }
+    mean = sum / n;
+
+    // 분산 계산
+    for (int i = 0; i < n; i++) {
+        variance += pow(arr[i] - mean, 2);
+    }
+    variance /= n;
+
+    // 표준편차 계산
+    standardDeviation = sqrt(variance);
+    return standardDeviation;
+}
+
+int main() {
+    double arr[5];
+    int n = 5;
+
+    // 5개의 실수를 입력받음
+    printf("Enter 5 real numbers: ");
+    for (int i = 0; i < n; i++) {
+        scanf("%lf", &arr[i]);
+    }
+
+    // 표준편차 계산
+    double standardDeviation = calculateStandardDeviation(arr, n);
+
+    // 결과 출력
+    printf("Standard Deviation = %.3f\n", standardDeviation);
+
+    return 0;
+}
